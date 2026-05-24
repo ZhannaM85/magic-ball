@@ -48,8 +48,8 @@
 
 /* ─── Triangle window ─── */
 .window {
-  width: 52%;
-  height: 52%;
+  width: 64%;
+  height: 64%;
   border-radius: 50%;
   background: radial-gradient(circle, #0d0d2b 0%, #050510 100%);
   display: flex;
@@ -58,7 +58,7 @@
   opacity: 0;
   transition: opacity 0.2s ease;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-  margin-top: 12%;
+  margin-top: 8%;
 }
 
 .windowRevealed {
@@ -67,12 +67,12 @@
 
 /* ─── Triangle shape ─── */
 .triangle {
-  width: 78%;
-  height: 78%;
+  width: 88%;
+  height: 88%;
   clip-path: polygon(50% 4%, 4% 96%, 96% 96%);
   background: linear-gradient(160deg, #1a1a4a 0%, #0d0d2e 100%);
   display: flex;
-  /* align text near the wide base of the triangle */
+  /* text near the wide base */
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 10%;
@@ -82,14 +82,13 @@
 /* ─── Answer text ─── */
 .answer {
   opacity: 0;
-  font-size: clamp(0.5rem, 2.4vw, 0.75rem);
+  font-size: clamp(0.55rem, 2.4vw, 0.8rem);
   font-weight: 700;
   text-align: center;
-  line-height: 1.25;
-  /* at the base the triangle is ~76% wide — stay comfortably inside */
-  max-width: 62%;
+  line-height: 1.3;
+  max-width: 68%;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .answerVisible {
