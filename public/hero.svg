@@ -87,7 +87,7 @@
   <!-- Answer text inside triangle area -->
   <text x="320" y="424" font-family="Arial Black, sans-serif" font-size="15" font-weight="900"
         fill="#4ade80" text-anchor="middle" letter-spacing="1.5"
-        style="text-transform:uppercase">ЭТО ТОЧНО</text>
+        style="text-transform:uppercase">IT IS CERTAIN</text>
 
   <!-- "8" on ball -->
   <text x="320" y="248" font-family="Arial Black, sans-serif" font-size="56" font-weight="900"
@@ -108,9 +108,9 @@
   <text x="720" y="222" font-family="Arial Black, -apple-system, sans-serif" font-size="72" font-weight="900"
         fill="white" filter="url(#titleGlow)" letter-spacing="-1">Magic 8-Ball</text>
 
-  <!-- Subtitle Russian -->
+  <!-- Subtitle -->
   <text x="720" y="276" font-family="Arial Black, -apple-system, sans-serif" font-size="28" font-weight="700"
-        fill="rgba(167,139,250,0.8)" letter-spacing="0.5">Магический шар</text>
+        fill="rgba(167,139,250,0.8)" letter-spacing="0.5">Ask. Shake. Believe.</text>
 
   <!-- Divider line -->
   <line x1="720" y1="308" x2="1160" y2="308" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
