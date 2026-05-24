@@ -1,5 +1,7 @@
 # 🎱 Magic 8-Ball
 
+![Magic 8-Ball hero](public/hero.svg)
+
 A mystical Magic 8-Ball web app — think your question, shake your phone (or tap the button), and receive your answer from the universe.
 
 **🔮 Live app → [zhannam85.github.io/magic-ball](https://zhannam85.github.io/magic-ball/)**

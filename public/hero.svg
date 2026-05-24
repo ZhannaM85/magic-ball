@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bg" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#1a0533"/>
+      <stop offset="60%" stop-color="#0a0010"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Ball gradient -->
+    <radialGradient id="ball" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#555555"/>
+      <stop offset="45%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Ball glow -->
+    <radialGradient id="ballGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Window gradient -->
+    <radialGradient id="win" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d0d2b"/>
+      <stop offset="100%" stop-color="#050510"/>
+    </radialGradient>
+
+    <!-- Title glow filter -->
+    <filter id="titleGlow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Eight glow filter -->
+    <filter id="eightGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Soft shadow for ball -->
+    <filter id="ballShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="28" flood-color="#7c3aed" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Subtle star dots -->
+  <circle cx="80" cy="60" r="1.5" fill="white" opacity="0.4"/>
+  <circle cx="210" cy="130" r="1" fill="white" opacity="0.3"/>
+  <circle cx="350" cy="45" r="2" fill="white" opacity="0.25"/>
+  <circle cx="500" cy="95" r="1" fill="white" opacity="0.35"/>
+  <circle cx="1100" cy="55" r="1.5" fill="white" opacity="0.4"/>
+  <circle cx="1200" cy="130" r="1" fill="white" opacity="0.3"/>
+  <circle cx="960" cy="40" r="2" fill="white" opacity="0.25"/>
+  <circle cx="1050" cy="100" r="1" fill="white" opacity="0.35"/>
+  <circle cx="150" cy="500" r="1.5" fill="white" opacity="0.3"/>
+  <circle cx="1150" cy="480" r="1.5" fill="white" opacity="0.3"/>
+  <circle cx="1230" cy="560" r="1" fill="white" opacity="0.25"/>
+  <circle cx="60" cy="400" r="1" fill="white" opacity="0.2"/>
+
+  <!-- Ball glow aura -->
+  <circle cx="320" cy="330" r="240" fill="url(#ballGlow)"/>
+
+  <!-- Ball shadow -->
+  <circle cx="320" cy="336" r="196" fill="#000" opacity="0.5" filter="url(#ballShadow)"/>
+
+  <!-- The ball -->
+  <circle cx="320" cy="330" r="196" fill="url(#ball)"/>
+
+  <!-- Ball specular highlight -->
+  <ellipse cx="268" cy="258" rx="58" ry="36" fill="white" opacity="0.06" transform="rotate(-20 268 258)"/>
+
+  <!-- Window circle -->
+  <circle cx="320" cy="358" r="112" fill="url(#win)"/>
+  <circle cx="320" cy="358" r="112" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+
+  <!-- Triangle (clip-path for just the shape) -->
+  <clipPath id="tri">
+    <polygon points="320,266 222,450 418,450"/>
+  </clipPath>
+  <polygon points="320,266 222,450 418,450" fill="#1a1a4a"/>
+  <polygon points="320,266 222,450 418,450" fill="none" stroke="#2a2a6a" stroke-width="1" opacity="0.5"/>
+
+  <!-- Answer text inside triangle area -->
+  <text x="320" y="424" font-family="Arial Black, sans-serif" font-size="15" font-weight="900"
+        fill="#4ade80" text-anchor="middle" letter-spacing="1.5"
+        style="text-transform:uppercase">ЭТО ТОЧНО</text>
+
+  <!-- "8" on ball -->
+  <text x="320" y="248" font-family="Arial Black, sans-serif" font-size="56" font-weight="900"
+        fill="white" text-anchor="middle" dominant-baseline="middle"
+        filter="url(#eightGlow)" opacity="0.95">8</text>
+
+  <!-- ─── Right side: text content ─── -->
+
+  <!-- EN / RU chip -->
+  <rect x="720" y="108" width="104" height="34" rx="17" fill="rgba(255,255,255,0.07)"/>
+  <rect x="722" y="110" width="46" height="30" rx="15" fill="rgba(124,58,237,0.75)"/>
+  <text x="745" y="129" font-family="-apple-system,Arial,sans-serif" font-size="13" font-weight="700"
+        fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="0.5">EN</text>
+  <text x="799" y="129" font-family="-apple-system,Arial,sans-serif" font-size="13" font-weight="700"
+        fill="rgba(255,255,255,0.45)" text-anchor="middle" dominant-baseline="middle" letter-spacing="0.5">RU</text>
+
+  <!-- Main title -->
+  <text x="720" y="222" font-family="Arial Black, -apple-system, sans-serif" font-size="72" font-weight="900"
+        fill="white" filter="url(#titleGlow)" letter-spacing="-1">Magic 8-Ball</text>
+
+  <!-- Subtitle Russian -->
+  <text x="720" y="276" font-family="Arial Black, -apple-system, sans-serif" font-size="28" font-weight="700"
+        fill="rgba(167,139,250,0.8)" letter-spacing="0.5">Магический шар</text>
+
+  <!-- Divider line -->
+  <line x1="720" y1="308" x2="1160" y2="308" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+  <!-- Feature bullets -->
+  <circle cx="732" cy="348" r="4" fill="#7c3aed"/>
+  <text x="748" y="353" font-family="-apple-system,Arial,sans-serif" font-size="18"
+        fill="rgba(255,255,255,0.75)" dominant-baseline="middle">Shake your phone to reveal the answer</text>
+
+  <circle cx="732" cy="390" r="4" fill="#7c3aed"/>
+  <text x="748" y="395" font-family="-apple-system,Arial,sans-serif" font-size="18"
+        fill="rgba(255,255,255,0.75)" dominant-baseline="middle">20 classic answers · English &amp; Russian</text>
+
+  <circle cx="732" cy="432" r="4" fill="#7c3aed"/>
+  <text x="748" y="437" font-family="-apple-system,Arial,sans-serif" font-size="18"
+        fill="rgba(255,255,255,0.75)" dominant-baseline="middle">React + TypeScript · GitHub Pages</text>
+
+  <!-- CTA pill -->
+  <rect x="720" y="490" width="240" height="52" rx="26"
+        fill="url(#btnGrad)" stroke="rgba(124,58,237,0.6)" stroke-width="1.5"/>
+  <defs>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <text x="840" y="522" font-family="Arial Black, sans-serif" font-size="15" font-weight="900"
+        fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="1.5">TRY IT LIVE →</text>
+</svg>
