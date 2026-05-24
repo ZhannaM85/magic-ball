@@ -40,10 +40,11 @@ export function MagicBall({ appPhase, answer, onShake, onAnimationEnd }: MagicBa
         <span className={styles.eight}>8</span>
 
         <div className={windowClass}>
-          <div className={styles.triangle} />
-          {answer && (
-            <p className={answerClass}>{answer.text}</p>
-          )}
+          <div className={styles.triangle}>
+            {answer && (
+              <p className={answerClass}>{answer.text}</p>
+            )}
+          </div>
         </div>
       </div>
 
