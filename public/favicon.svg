@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="url(#ballGrad)" stroke="#222" stroke-width="1.5"/>
+  <defs>
+    <radialGradient id="ballGrad" cx="38%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#555"/>
+      <stop offset="50%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="36" r="14" fill="#0d0d2b"/>
+  <polygon points="32,24 22,44 42,44" fill="#1a1a4a"/>
+  <text x="32" y="40" font-family="Arial Black, sans-serif" font-size="10" font-weight="900"
+        fill="white" text-anchor="middle" dominant-baseline="middle">8</text>
+  <text x="22" y="22" font-family="Arial Black, sans-serif" font-size="14" font-weight="900"
+        fill="white" text-anchor="middle" dominant-baseline="middle"
+        style="text-shadow: 0 0 4px white">8</text>
+</svg>
