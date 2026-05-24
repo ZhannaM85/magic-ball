@@ -12,12 +12,12 @@ i18n
       en: { translation: en },
       ru: { translation: ru },
     },
-    fallbackLng: 'en',
+    fallbackLng: 'ru',
     supportedLngs: ['en', 'ru'],
     interpolation: { escapeValue: false },
     detection: {
-      // Check localStorage first (manual user choice), then browser language
-      order: ['localStorage', 'navigator'],
+      // Only use stored user choice; ignore browser language so Russian is always the default
+      order: ['localStorage'],
       caches: ['localStorage'],
     },
   });
