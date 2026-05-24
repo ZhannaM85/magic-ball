@@ -11,7 +11,6 @@ export default function App() {
   const { t, i18n } = useTranslation();
   const [phase, setPhase] = useState<AppPhase>('idle');
   const [answer, setAnswer] = useState<Answer | null>(null);
-  const [question, setQuestion] = useState('');
   const [skipMotion, setSkipMotion] = useState(false);
 
   const lang = (i18n.language.startsWith('ru') ? 'ru' : 'en') as Language;
@@ -56,16 +55,6 @@ export default function App() {
       <LanguageSwitcher />
 
       <h1 className={styles.title}>{t('title')}</h1>
-
-      <textarea
-        className={styles.questionInput}
-        placeholder={t('questionPlaceholder')}
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        rows={2}
-        maxLength={200}
-        aria-label={t('questionPlaceholder')}
-      />
 
       <MagicBall
         appPhase={phase}

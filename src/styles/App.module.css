@@ -23,31 +23,6 @@
   margin: 0;
 }
 
-/* ─── Question input ─── */
-.questionInput {
-  width: min(90vw, 380px);
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  font-size: 1rem;
-  resize: none;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  font-family: inherit;
-  box-sizing: border-box;
-}
-
-.questionInput::placeholder {
-  color: rgba(255, 255, 255, 0.35);
-}
-
-.questionInput:focus {
-  border-color: rgba(167, 139, 250, 0.6);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
-}
-
 /* ─── iOS Permission overlay ─── */
 .permissionOverlay {
   position: fixed;
