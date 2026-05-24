@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# 🎱 Magic 8-Ball
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mystical Magic 8-Ball web app — think your question, shake your phone (or tap the button), and receive your answer from the universe.
 
-Currently, two official plugins are available:
+**🔮 Live app → [zhannam85.github.io/magic-ball](https://zhannam85.github.io/magic-ball/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Shake detection** — uses the `DeviceMotionEvent` API on mobile; iOS 13+ asks for permission once, and gracefully falls back to button-only mode if denied
+- **Shake button** — always visible, works on desktop and any device regardless of motion permission
+- **20 classic answers** — 10 positive, 5 neutral, 5 negative, colour-coded green / yellow / red
+- **English & Russian** — auto-detects nothing (Russian is the default); toggle with the EN / RU switcher in the top-right corner, choice is saved across visits
+- **Smooth animations** — wobble shake, triangle window fade-in, answer text fade-up
+- **Mobile-first** — optimised for phones, works in all modern browsers
+- **Capacitor-ready** — structured for a future App Store / Google Play release with minimal changes
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| | |
+|---|---|
+| Framework | React 18 + TypeScript (strict) |
+| Build tool | Vite 5 |
+| i18n | react-i18next + i18next-browser-languagedetector |
+| Styling | CSS Modules (no UI library) |
+| Hosting | GitHub Pages via GitHub Actions |
+| Future mobile | Capacitor (stub committed, ready to add) |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/
+│   ├── MagicBall.tsx        # The ball visual + shake button
+│   └── LanguageSwitcher.tsx # EN / RU toggle
+├── hooks/
+│   └── useDeviceMotion.ts   # Shake detection (Capacitor swap-point)
+├── data/
+│   └── answers.ts           # 20 classic answers × 2 languages
+├── i18n/
+│   ├── index.ts             # i18next initialisation
+│   └── locales/
+│       ├── en.ts            # English UI strings
+│       └── ru.ts            # Russian UI strings
+├── styles/                  # CSS Modules
+├── types/index.ts           # Shared TypeScript types
+└── App.tsx                  # State machine & orchestration
+```
+
+---
+
+## Deployment
+
+Every push to `main` automatically builds and deploys to GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`). No manual steps needed.
+
+---
+
+## Adding Capacitor (future mobile)
+
+A `capacitor.config.ts` stub is already committed. When ready:
+
+```bash
+npm install @capacitor/core @capacitor/cli @capacitor/ios @capacitor/android
+npx cap add ios
+npx cap add android
+
+# Build for native (overrides the GitHub Pages base path)
+npx vite build --base /
+npx cap sync
+npx cap open ios
+```
+
+To use native shake detection, replace the `DeviceMotionEvent` listener in `src/hooks/useDeviceMotion.ts` with `@capacitor/motion`.
