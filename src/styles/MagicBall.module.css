@@ -48,6 +48,7 @@
 
 /* ─── Triangle window ─── */
 .window {
+  position: relative;
   width: 64%;
   height: 64%;
   border-radius: 50%;
@@ -65,28 +66,27 @@
   opacity: 1;
 }
 
-/* ─── Triangle shape ─── */
+/* ─── Triangle shape — purely decorative, no text inside ─── */
 .triangle {
   width: 88%;
   height: 88%;
   clip-path: polygon(50% 4%, 4% 96%, 96% 96%);
   background: linear-gradient(160deg, #1a1a4a 0%, #0d0d2e 100%);
-  display: flex;
-  /* text near the wide base */
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 10%;
-  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
-/* ─── Answer text ─── */
+/* ─── Answer text — overlaid on window, not clipped by triangle ─── */
 .answer {
+  position: absolute;
+  bottom: 16%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 76%;
   opacity: 0;
   font-size: clamp(0.8rem, 3.8vw, 1rem);
   font-weight: 700;
   text-align: center;
   line-height: 1.3;
-  max-width: 68%;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
